@@ -1,7 +1,7 @@
 
 header {
     width: 100%;
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(0, 0, 0);
     height: 80px;
     padding: 10px;
     box-sizing: border-box;
@@ -11,8 +11,9 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 500;
     max-width: 1920px;
+    font-family: 'Font1', Orbitron;
 
 }
 body {
@@ -29,7 +30,7 @@ body {
 
     width: 60px;
     height: 60px;
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(0, 0, 0);
     border-radius: 15%;
     margin-right: 10px;
 }
@@ -65,4 +66,100 @@ canvas {
     width: 100%; /* Займає всю ширину вікна */
     height: 100%; /* Займає всю висоту вікна */
     position: fixed;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(10px)
+}
+
+.login-container {
+    z-index: 2;
+    text-align: center;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; 
+    height: 100px; 
+}
+
+button {
+    background-color: rgb(24, 24, 24);
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Font1', Orbitron;
+    border-radius: 10px;
+
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 10%;
+}
+
+.text-container {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.text {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Font1', Orbitron;
+}
+
+.hidden {
+    display: none;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loading-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.loader-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(24, 24, 24);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    opacity: 1; 
+    transition: opacity 1.5s ease-in-out; 
+}
+
+.loader-container.hidden {
+    opacity: 0; 
+    pointer-events: none;
 }

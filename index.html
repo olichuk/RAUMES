@@ -6,6 +6,9 @@
     <title>Raumes</title>
     <link rel="icon" type="image/png" href="image/raumes01.png">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     
 </head>
 <body>
@@ -13,7 +16,26 @@
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
     <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
     <script src="site.js"></script>
-    
+
+            <audio autoplay volume="0.2" preload="none" loop>
+                <source src="background.mp3">
+            </audio>
+
+    <div class="loader-container">
+        <div class="loader">
+            <img src="image/raumeswhite2.0.png" alt="Завантаження" class="loading-icon">
+        </div>
+    </div>
+    <div class="overlay"></div>
+        <div class="text-container">
+            <div class="text">
+                <p>It takes a planet to explore the universe...</p>
+            </div>
+        </div>
+    <div class="login-container">
+        <button id="loginButton" class=>Explore</button>
+    </div>
+    <script src="login.js"></script>
         <header >
             <link rel="icon" type="image/png" href="image/raumeswhite2.0.png">
             <img id="logo" src="image/raumeswhite2.0.png">
