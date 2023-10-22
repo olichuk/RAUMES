@@ -1,6 +1,6 @@
 var canvas = document.getElementById("renderCanvas");
 var engine = new BABYLON.Engine(canvas, true);
-var scene, sun, mercury, venus, mars;
+var scene, sun, mercury, venus, mars, moon;
 
 var createScene = function () {
     scene = new BABYLON.Scene(engine);
@@ -34,13 +34,10 @@ var createScene = function () {
     });
 
                                 //ВЕНЕРА!!!
-    BABYLON.SceneLoader.ImportMesh("", "models/", "venus2.gltf", scene, function (meshes) {
+    BABYLON.SceneLoader.ImportMesh("", "models/", "venus3.glb", scene, function (meshes) {
         venus = meshes[0];
         venus.position = new BABYLON.Vector3(25, 0, 0);
         venus.scaling = new BABYLON.Vector3(1, 1, 1);
-        var material = new BABYLON.StandardMaterial("material", scene);
-        material.diffuseColor = new BABYLON.Color3(1, 1, 1);
-        venus.material = material;
     });
 
                                 //МЕРКУРІЙ!!!
@@ -56,7 +53,13 @@ var createScene = function () {
         mars.position = new BABYLON.Vector3(35, 0, 0);
         mars.scaling = new BABYLON.Vector3(1, 1, 1);
     });    
-                                    
+                                //МІСЯЦЬ!!!
+    BABYLON.SceneLoader.ImportMesh("", "models/", "Moon.gltf", scene, function(meshes) {
+        moon = meshes[0];
+        moon.position = new BABYLON.Vector3(40, 0, 0);
+        moon.scaling = new BABYLON.Vector3(1, 1, 1);
+    });
+
 // Додати анімацію обертання планети
         var mercuryRotationAnimation = new BABYLON.Animation(
         "mercuryRotation",
@@ -76,10 +79,6 @@ var createScene = function () {
                                 //СВІТЛО!!!
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 0, 0), scene);
     light.intensity = 0.25;
-
-    var directionalLight = new BABYLON.DirectionalLight("directionalLight", new BABYLON.Vector3(0, -1, 0), scene);
-    directionalLight.intensity = 1;
-
 
     return scene;
 };
