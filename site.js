@@ -34,7 +34,7 @@ var createScene = function () {
     });
 
                                 //ВЕНЕРА!!!
-    BABYLON.SceneLoader.ImportMesh("", "models/", "venus3.glb", scene, function (meshes) {
+    BABYLON.SceneLoader.ImportMesh("", "models/", "venus4.glb", scene, function (meshes) {
         venus = meshes[0];
         venus.position = new BABYLON.Vector3(25, 0, 0);
         venus.scaling = new BABYLON.Vector3(1, 1, 1);
@@ -48,7 +48,7 @@ var createScene = function () {
         //addClickEvent(mercury, scene, camera, mercury.position);
 
                                 //МАРС!!!
-    BABYLON.SceneLoader.ImportMesh("", "models/", "mars.glb", scene, function (meshes) {
+    BABYLON.SceneLoader.ImportMesh("", "models/", "mars2.glb", scene, function (meshes) {
         mars = meshes[0];
         mars.position = new BABYLON.Vector3(35, 0, 0);
         mars.scaling = new BABYLON.Vector3(1, 1, 1);
