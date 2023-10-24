@@ -26,7 +26,7 @@ var createScene = function () {
     });
 
                                 //СОНЦЕ!!!
-    BABYLON.SceneLoader.ImportMesh("", "models/", "sun2.glb", scene, function (meshes) {
+    BABYLON.SceneLoader.ImportMesh("", "models/", "sun.glb", scene, function (meshes) {
         sun = meshes[0];
         sun.name = "sun";
         sun.position = new BABYLON.Vector3(0, 0, 0);
@@ -36,7 +36,7 @@ var createScene = function () {
     });
 
                                 //ВЕНЕРА!!!
-    BABYLON.SceneLoader.ImportMesh("", "models/", "venus4.glb", scene, function (meshes) {
+    BABYLON.SceneLoader.ImportMesh("", "models/", "venus.glb", scene, function (meshes) {
         venus = meshes[0];
         venus.name = "venus";
         venus.position = new BABYLON.Vector3(25, 0, 0);
@@ -45,7 +45,7 @@ var createScene = function () {
     });
 
                                 //МЕРКУРІЙ!!!
-    BABYLON.SceneLoader.ImportMesh("", "models/", "mercury2.glb", scene, function (meshes) {
+    BABYLON.SceneLoader.ImportMesh("", "models/", "mercury.glb", scene, function (meshes) {
         mercury = meshes[0];
         mercury.name = "mercury";
         mercury.position = new BABYLON.Vector3(15, 0, 0);
@@ -55,7 +55,7 @@ var createScene = function () {
     });
 
                                 //МАРС!!!
-    BABYLON.SceneLoader.ImportMesh("", "models/", "mars2.glb", scene, function (meshes) {
+    BABYLON.SceneLoader.ImportMesh("", "models/", "mars.glb", scene, function (meshes) {
         mars = meshes[0];
         mars.name = "mars";
         mars.position = new BABYLON.Vector3(35, 0, 0);
@@ -73,7 +73,7 @@ var createScene = function () {
     });
 
                                 //НЕПТУН!!!
-    BABYLON.SceneLoader.ImportMesh("", "models/", "neptune4.glb", scene, function (meshes) {
+    BABYLON.SceneLoader.ImportMesh("", "models/", "neptune.glb", scene, function (meshes) {
         neptune = meshes[0];
         neptune.name = "neptune";
         neptune.position = new BABYLON.Vector3(60, 0, 0);
@@ -82,7 +82,7 @@ var createScene = function () {
     });
 
                                 //ПЛУТОН!!!
-    BABYLON.SceneLoader.ImportMesh("", "models/", "pluto2.glb", scene, function (meshes) {
+    BABYLON.SceneLoader.ImportMesh("", "models/", "pluto.glb", scene, function (meshes) {
         pluto = meshes[0];
         pluto.name = "pluto";
         pluto.position = new BABYLON.Vector3(50, 0, 0);
