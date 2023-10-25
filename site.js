@@ -1,6 +1,6 @@
 var canvas = document.getElementById("renderCanvas");
 var engine = new BABYLON.Engine(canvas, true);
-var scene, sun, mercury, venus, mars, moon, neptune, pluto;
+var scene, sun, mercury, venus, mars, moon, neptune, pluto, earth;
 
 var createScene = function () {
     scene = new BABYLON.Scene(engine);
@@ -88,6 +88,15 @@ var createScene = function () {
         pluto.position = new BABYLON.Vector3(120, 0, 0);
         pluto.scaling = new BABYLON.Vector3(1, 1, 1);
         createPlanetRotationAnimation(pluto, 25);
+    });
+
+
+    BABYLON.SceneLoader.ImportMesh("", "models/", "earth.glb", scene, function (meshes) {
+        earth = meshes[0];
+        earth.name = "earth";
+        earth.position = new BABYLON.Vector3(27, 0, 0);
+        earth.scaling = new BABYLON.Vector3(1, 1, 1);
+        createPlanetRotationAnimation(earth, 25);
     });
 
 
