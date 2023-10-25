@@ -6,7 +6,7 @@ body {
 header {
 
     width: 100%;
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(0, 0, 0);
     height: 80px;
     padding: 10px;
     box-sizing: border-box;
@@ -16,7 +16,6 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
     max-width: 1920px;
 }
 
@@ -24,7 +23,7 @@ header {
 
     width: 60px;
     height: 60px;
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(0, 0, 0);
     border-radius: 15%;
     margin-right: 10px;
 }
@@ -35,4 +34,70 @@ header {
     text-align: center;
     margin-left: 5px;
     
+}
+
+#box {
+    width: 50vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+#renderCanvas {
+    width: 50vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 80px;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loading-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.loader-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(24, 24, 24);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    opacity: 1; 
+    transition: opacity 1.5s ease-in-out; 
+}
+
+.loader-container.hidden {
+    opacity: 0; 
+    pointer-events: none;
 }

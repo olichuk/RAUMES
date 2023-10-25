@@ -74,7 +74,7 @@ var createScene = function () {
         pluto.scaling = new BABYLON.Vector3(1, 1, 1);
     });
 
-
+                                //ЗЕМЛЯ!!!
     BABYLON.SceneLoader.ImportMesh("", "models/", "earth.glb", scene, function (meshes) {
         earth = meshes[0];
         earth.position = new BABYLON.Vector3(27, 0, 0);
@@ -88,7 +88,6 @@ var createScene = function () {
     return scene;
 };
 
-scene.debugLayer.show();
 
 var scene = createScene();
 
