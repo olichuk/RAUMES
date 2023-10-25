@@ -39,7 +39,7 @@ var createScene = function () {
     BABYLON.SceneLoader.ImportMesh("", "models/", "venus.glb", scene, function (meshes) {
         venus = meshes[0];
         venus.name = "venus";
-        venus.position = new BABYLON.Vector3(25, 0, 0);
+        venus.position = new BABYLON.Vector3(20, 0, 0);
         venus.scaling = new BABYLON.Vector3(1, 1, 1);
         createPlanetRotationAnimation(venus, 40);
     });
@@ -48,7 +48,7 @@ var createScene = function () {
     BABYLON.SceneLoader.ImportMesh("", "models/", "mercury.glb", scene, function (meshes) {
         mercury = meshes[0];
         mercury.name = "mercury";
-        mercury.position = new BABYLON.Vector3(15, 0, 0);
+        mercury.position = new BABYLON.Vector3(10, 0, 0);
         mercury.scaling = new BABYLON.Vector3(0.5, 0.5, 0.5);
         createPlanetRotationAnimation(mercury, 50);
         //addClickEvent(mercury, scene, camera, mercury.position);
@@ -76,7 +76,7 @@ var createScene = function () {
     BABYLON.SceneLoader.ImportMesh("", "models/", "neptune.glb", scene, function (meshes) {
         neptune = meshes[0];
         neptune.name = "neptune";
-        neptune.position = new BABYLON.Vector3(60, 0, 0);
+        neptune.position = new BABYLON.Vector3(100, 0, 0);
         neptune.scaling = new BABYLON.Vector3(1, 1, 1);
         createPlanetRotationAnimation(neptune, 25);
     });
@@ -85,7 +85,7 @@ var createScene = function () {
     BABYLON.SceneLoader.ImportMesh("", "models/", "pluto.glb", scene, function (meshes) {
         pluto = meshes[0];
         pluto.name = "pluto";
-        pluto.position = new BABYLON.Vector3(50, 0, 0);
+        pluto.position = new BABYLON.Vector3(120, 0, 0);
         pluto.scaling = new BABYLON.Vector3(1, 1, 1);
         createPlanetRotationAnimation(pluto, 25);
     });

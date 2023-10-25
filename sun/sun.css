@@ -1,0 +1,38 @@
+body {
+    margin: 0; 
+    font-family: 'Font1', Orbitron;
+}
+
+header {
+
+    width: 100%;
+    background-color: rgb(24, 24, 24);
+    height: 80px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    max-width: 1920px;
+}
+
+#logo {
+
+    width: 60px;
+    height: 60px;
+    background-color: rgb(24, 24, 24);
+    border-radius: 15%;
+    margin-right: 10px;
+}
+
+#hdrname {
+
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-left: 5px;
+    
+}
