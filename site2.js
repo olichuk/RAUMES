@@ -115,7 +115,12 @@ var createScene = function () {
 var selectedPlanet = null;
 var targetDistance = 30;
 
-function setPlanetClickListener(planet) {
+function setPlanetInfo(planetName, planetDescription) {
+    planetTitleDiv.textContent = planetName;
+    planetDescriptionDiv.textContent = planetDescription;
+}
+
+function setPlanetClickListener(planet, description) {
     planet.actionManager = new BABYLON.ActionManager(scene);
     planet.actionManager.registerAction(
         new BABYLON.ExecuteCodeAction(
@@ -124,7 +129,11 @@ function setPlanetClickListener(planet) {
                 if (isPlanetClickEnabled) {
                     selectedPlanet = evt.source;
                     if (selectedPlanet && selectedPlanet.name !== "sun") {
-                        
+                        // Встановити інформацію про планету
+                        document.getElementById("planetTitle").textContent = selectedPlanet.name;
+                        document.getElementById("planetDescription").textContent = description;
+                        document.getElementById("planetInfoDiv").style.display = "block"; // Показати вікно з інформацією про планету
+
                         var xOffset = targetDistance * Math.sin(selectedPlanet.rotation.y);
                         var zOffset = targetDistance * Math.cos(selectedPlanet.rotation.y);
                         scene.activeCamera.position.x = selectedPlanet.position.x + xOffset;
@@ -140,14 +149,15 @@ function setPlanetClickListener(planet) {
 }
 
 
-setPlanetClickListener(sun);
-setPlanetClickListener(mercury);
-setPlanetClickListener(venus);
-setPlanetClickListener(mars);
-setPlanetClickListener(moon);
-setPlanetClickListener(neptune);
-setPlanetClickListener(pluto);
-setPlanetClickListener(earth);
+
+setPlanetClickListener(sun, "Сонце - це зірка типу Г-джай, яка знаходиться в центрі нашої Сонячної системи. Його маса величезна, дозволяючи в ньому відбуватися термоядерні реакції, які випромінюють світло і тепло. Сонце є джерелом енергії для всіх планет, комет і астероїдів у Сонячній системі.");
+setPlanetClickListener(mercury,"Меркурій - найменша планета нашої системи та найближча до Сонця. Це кам'яниста планета з тонкою атмосферою. Вона має екстремальні температури: дуже спекотно вдень і дуже холодно вночі через відсутність атмосфери, яка утримує тепло.");
+setPlanetClickListener(venus,"Венера - друга планета від Сонця. Це газоподібна планета з дуже густою атмосферою, яка містить хмарний шар кислотної сіричної кислоти. Її поверхня вкрита великою кількістю вулканів та гарячих пустель.");
+setPlanetClickListener(mars,"Марс - четверта планета від Сонця. Він має тонку атмосферу, що складається з вуглекислого газу. Марс відомий своєю червоною поверхнею, яка свідчить про наявність заліза в грунті. Деякі вчені вивчають можливість колонізації Марса у майбутньому.");
+setPlanetClickListener(moon,"Місяць - єдиний природний супутник Землі. Він впливає на припливи та відпливи нашого океану через гравітаційні сили. Місяць не має атмосфери і поверхня його покрита кратерами і горами.");
+setPlanetClickListener(neptune,"Нептун - восьма планета від Сонця. Це газовий гігант з хмарною атмосферою та потужними вітрами. Нептун також має кілька великих місяців, таких як Тритон.");
+setPlanetClickListener(pluto,"Плутон - карликова планета, яка раніше вважалася дев'ятою планетою Сонячної системи, але зараз відома як карликова планета. Він розташований в холодному поясі Койпера та має невеликі місяці, такі як Харон.");
+setPlanetClickListener(earth, "Земля - єдина відома нам планета, на якій існує життя. Її атмосфера складається з кисню, азоту, вуглекислого газу та інших слідних газів, необхідних для підтримки життя рослин і тварин.");
 
 
     function setCameraToSun(camera) {
