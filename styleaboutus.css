@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("image/aboutus2.webp");
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    font-family: 'Font1', Orbitron;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; 
+}
+
+.maincontainer {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 700px;
+    height: 470px;
+    max-width: 80%;
+    padding: 0px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    position: fixed;
+    top: 50%;
+    right: -50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    text-align: left;
+}
+
+h1 {
+    color: #fdfdfd;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+p {
+    color: rgb(255, 255, 255);
+    font-size: 24px; 
+    margin-top: -20px; 
+}
+
+header {
+
+    width: 100%;
+    background-color: rgb(24, 24, 24);
+    height: 80px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    max-width: 1920px;
+}
+
+#logo {
+
+    width: 60px;
+    height: 60px;
+    background-color: rgb(24, 24, 24);
+    border-radius: 15%;
+    margin-right: 10px;
+}
+
+#hdrname {
+
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-left: 5px;
+    font-weight: 400px;
+}
+
+.hidden {
+    display: none;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loading-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.loader-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(24, 24, 24);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    opacity: 1; 
+    transition: opacity 1.5s ease-in-out; 
+}
+
+.loader-container.hidden {
+    opacity: 0; 
+    pointer-events: none;
+}
