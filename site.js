@@ -34,6 +34,8 @@ var createScene = function () {
     return scene;
 };
 
+var scene = createScene();
+
 engine.runRenderLoop(function () {
     scene.render();
 });
