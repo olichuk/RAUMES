@@ -40,6 +40,7 @@ var createScene = function () {
         return planet;
     }
 
+    //Variables for a function
     sun = createPlanet("sun", 30, new BABYLON.Vector3(0, 0, 0), "../textures/sun.jpg");
     mercury = createPlanet("mercury", 3, new BABYLON.Vector3(40, 0, 0), "../textures/mercury.jpg");
     venus = createPlanet("venus", 9, new BABYLON.Vector3(90, 0, 0), "../textures/venus.jpg");
@@ -51,6 +52,41 @@ var createScene = function () {
     jupiter = createPlanet("jupiter", 4, new BABYLON.Vector3(400, 0, 0), "../textures/jupiter.jpg");
     saturn = createPlanet("saturn", 4, new BABYLON.Vector3(420, 0, 0), "../textures/saturn.jpg");
 
+    function animatePlanetRotationAroundSun(planet, radius, rotationSpeed) {
+        var rotatePlanetAroundSunAnimation = new BABYLON.Animation(
+            planet.name + "AroundSunRotation",
+            "rotation.y",
+            rotationSpeed,
+            BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+        );
+    
+        var rotationKeys = [];
+        rotationKeys.push({ frame: 0, value: 0 });
+        rotationKeys.push({ frame: 100, value: 2 * Math.PI });
+        rotatePlanetAroundSunAnimation.setKeys(rotationKeys);
+        planet.animations = [rotatePlanetAroundSunAnimation];
+    
+        var angle = 0; 
+scene.onBeforeRenderObservable.add(function () {
+    angle += rotationSpeed / 100; 
+    var xOffset = radius * Math.sin(angle);
+    var zOffset = radius * Math.cos(angle);
+    planet.position.x = xOffset;
+    planet.position.z = zOffset;
+});
+    
+        scene.beginAnimation(planet, 0, 100, true);
+    }
+
+    animatePlanetRotationAroundSun(mercury, 40, 0.5);
+    animatePlanetRotationAroundSun(venus, 90, 0.2);
+    animatePlanetRotationAroundSun(earth, 130, 0.1);
+    animatePlanetRotationAroundSun(mars, 200, 0.05);
+    animatePlanetRotationAroundSun(neptune, 300, 0.03);
+    animatePlanetRotationAroundSun(pluto, 380, 0.03);
+    animatePlanetRotationAroundSun(jupiter, 400, 0.03);
+    animatePlanetRotationAroundSun(saturn, 420, 0.03);
 
     // Light for scene
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 0, 0), scene);
