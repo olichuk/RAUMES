@@ -4,6 +4,8 @@ var scene, sun, mercury, venus, mars, moon, neptune, pluto, earth, jupiter, satu
 
 var initialCameraPosition = new BABYLON.Vector3(-Math.PI / 6, Math.PI / 2.1, 50);
 
+var isPlanetClickEnabled = true;
+
 //Scene
 var createScene = function () {
     scene = new BABYLON.Scene(engine);
@@ -133,23 +135,23 @@ scene.onBeforeRenderObservable.add(function () {
     setPlanetClickListener(saturn, "saturn");
 
     //clickListener
-function setPlanetClickListener(planet, planetName) {
-    planet.actionManager = new BABYLON.ActionManager(scene);
-    planet.actionManager.registerAction(
-        new BABYLON.ExecuteCodeAction(
-            BABYLON.ActionManager.OnPickTrigger,
-            function (evt) {
-                if (isPlanetClickEnabled) {
-                    selectedPlanet = evt.source;
-                    if (selectedPlanet && planetName) {
-                        var htmlFilePath = "path/to/your/folder/" + planetName + ".html";
-                        window.open(htmlFilePath, "_blank");
+    function setPlanetClickListener(planet, planetName) {
+        planet.actionManager = new BABYLON.ActionManager(scene);
+        planet.actionManager.registerAction(
+            new BABYLON.ExecuteCodeAction(
+                BABYLON.ActionManager.OnPickTrigger,
+                function (evt) {
+                    if (isPlanetClickEnabled) {
+                        selectedPlanet = evt.source;
+                        if (selectedPlanet && planetName) {
+                            var htmlFilePath = "../" + planetName + "/" + planetName + ".html";
+                            window.location.href = htmlFilePath;
+                        }
                     }
                 }
-            }
-        )
-    );
-}
+            )
+        );
+    }    
 
     // Light for scene
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 0, 0), scene);
