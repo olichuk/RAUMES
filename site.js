@@ -1,6 +1,6 @@
 var canvas = document.getElementById("renderCanvas");
 var engine = new BABYLON.Engine(canvas, true);
-var scene;
+var scene, sun, mercury, venus, mars, moon, neptune, pluto, earth, jupiter, saturn;
 
 var initialCameraPosition = new BABYLON.Vector3(-Math.PI / 6, Math.PI / 2.1, 50);
 
@@ -26,6 +26,31 @@ var createScene = function () {
         material.emissiveTexture = new BABYLON.Texture("", scene);
         backgroundspace.material = material;
     });
+
+    //A function to create a planet with texture and rotation animation
+    function createPlanet(name, diameter, position, texturePath) {
+        var planetMaterial = new BABYLON.StandardMaterial(name + "Material", scene);
+        planetMaterial.diffuseTexture = new BABYLON.Texture(texturePath, scene);
+        planetMaterial.emissiveTexture = new BABYLON.Texture(texturePath, scene);
+    
+        var planet = BABYLON.MeshBuilder.CreateSphere(name, { diameter: diameter }, scene);
+        planet.position = position;
+        planet.material = planetMaterial;
+    
+        return planet;
+    }
+
+    sun = createPlanet("sun", 30, new BABYLON.Vector3(0, 0, 0), "../textures/sun.jpg");
+    mercury = createPlanet("mercury", 3, new BABYLON.Vector3(40, 0, 0), "../textures/mercury.jpg");
+    venus = createPlanet("venus", 9, new BABYLON.Vector3(90, 0, 0), "../textures/venus.jpg");
+    earth = createPlanet("earth", 10, new BABYLON.Vector3(130, 0, 0), "../textures/earth.jpg");
+    moon = createPlanet("moon", 2, new BABYLON.Vector3(140, 0, 0), "../textures/moon.jpg");
+    mars = createPlanet("mars", 5, new BABYLON.Vector3(200, 0, 0), "../textures/mars.jpg");
+    neptune = createPlanet("neptune", 14, new BABYLON.Vector3(300, 0, 0), "../textures/neptune.jpg");
+    pluto = createPlanet("pluto", 4, new BABYLON.Vector3(380, 0, 0), "../textures/pluto.jpg");
+    jupiter = createPlanet("jupiter", 4, new BABYLON.Vector3(400, 0, 0), "../textures/jupiter.jpg");
+    saturn = createPlanet("saturn", 4, new BABYLON.Vector3(420, 0, 0), "../textures/saturn.jpg");
+
 
     // Light for scene
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 0, 0), scene);
