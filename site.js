@@ -117,6 +117,35 @@ scene.onBeforeRenderObservable.add(function () {
     animatePlanetRotationAroundSun(jupiter, 400, 0.03);
     animatePlanetRotationAroundSun(saturn, 420, 0.03);
 
+    setPlanetClickListener(sun, "sun");
+    setPlanetClickListener(mercury, "mercury");
+    setPlanetClickListener(venus, "venus");
+    setPlanetClickListener(mars, "mars");
+    setPlanetClickListener(moon, "moon");
+    setPlanetClickListener(neptune, "neptune");
+    setPlanetClickListener(pluto, "pluto");
+    setPlanetClickListener(earth, "earth");
+    setPlanetClickListener(jupiter, "jupiter");
+    setPlanetClickListener(saturn, "saturn");
+
+function setPlanetClickListener(planet, planetName) {
+    planet.actionManager = new BABYLON.ActionManager(scene);
+    planet.actionManager.registerAction(
+        new BABYLON.ExecuteCodeAction(
+            BABYLON.ActionManager.OnPickTrigger,
+            function (evt) {
+                if (isPlanetClickEnabled) {
+                    selectedPlanet = evt.source;
+                    if (selectedPlanet && planetName) {
+                        var htmlFilePath = "path/to/your/folder/" + planetName + ".html";
+                        window.open(htmlFilePath, "_blank");
+                    }
+                }
+            }
+        )
+    );
+}
+
     // Light for scene
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 0, 0), scene);
     light.intensity = 0.25;
