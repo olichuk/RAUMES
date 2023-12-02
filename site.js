@@ -1,6 +1,6 @@
 var canvas = document.getElementById("renderCanvas");
 var engine = new BABYLON.Engine(canvas, true);
-var scene;
+var scene, sun, mercury, venus, mars, moon, neptune, pluto, earth, jupiter, saturn;
 
 var initialCameraPosition = new BABYLON.Vector3(-Math.PI / 6, Math.PI / 2.1, 50);
 
@@ -26,6 +26,67 @@ var createScene = function () {
         material.emissiveTexture = new BABYLON.Texture("", scene);
         backgroundspace.material = material;
     });
+
+    //A function to create a planet with texture and rotation animation
+    function createPlanet(name, diameter, position, texturePath) {
+        var planetMaterial = new BABYLON.StandardMaterial(name + "Material", scene);
+        planetMaterial.diffuseTexture = new BABYLON.Texture(texturePath, scene);
+        planetMaterial.emissiveTexture = new BABYLON.Texture(texturePath, scene);
+    
+        var planet = BABYLON.MeshBuilder.CreateSphere(name, { diameter: diameter }, scene);
+        planet.position = position;
+        planet.material = planetMaterial;
+    
+        return planet;
+    }
+
+    //Variables for a function
+    sun = createPlanet("sun", 30, new BABYLON.Vector3(0, 0, 0), "../textures/sun.jpg");
+    mercury = createPlanet("mercury", 3, new BABYLON.Vector3(40, 0, 0), "../textures/mercury.jpg");
+    venus = createPlanet("venus", 9, new BABYLON.Vector3(90, 0, 0), "../textures/venus.jpg");
+    earth = createPlanet("earth", 10, new BABYLON.Vector3(130, 0, 0), "../textures/earth.jpg");
+    moon = createPlanet("moon", 2, new BABYLON.Vector3(140, 0, 0), "../textures/moon.jpg");
+    mars = createPlanet("mars", 5, new BABYLON.Vector3(200, 0, 0), "../textures/mars.jpg");
+    neptune = createPlanet("neptune", 14, new BABYLON.Vector3(300, 0, 0), "../textures/neptune.jpg");
+    pluto = createPlanet("pluto", 4, new BABYLON.Vector3(380, 0, 0), "../textures/pluto.jpg");
+    jupiter = createPlanet("jupiter", 4, new BABYLON.Vector3(400, 0, 0), "../textures/jupiter.jpg");
+    saturn = createPlanet("saturn", 4, new BABYLON.Vector3(420, 0, 0), "../textures/saturn.jpg");
+
+    function animatePlanetRotationAroundSun(planet, radius, rotationSpeed) {
+        var rotatePlanetAroundSunAnimation = new BABYLON.Animation(
+            planet.name + "AroundSunRotation",
+            "rotation.y",
+            rotationSpeed,
+            BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+        );
+    
+        var rotationKeys = [];
+        rotationKeys.push({ frame: 0, value: 0 });
+        rotationKeys.push({ frame: 100, value: 2 * Math.PI });
+        rotatePlanetAroundSunAnimation.setKeys(rotationKeys);
+        planet.animations = [rotatePlanetAroundSunAnimation];
+    
+        var angle = 0; 
+scene.onBeforeRenderObservable.add(function () {
+    angle += rotationSpeed / 100; 
+    var xOffset = radius * Math.sin(angle);
+    var zOffset = radius * Math.cos(angle);
+    planet.position.x = xOffset;
+    planet.position.z = zOffset;
+});
+    
+        scene.beginAnimation(planet, 0, 100, true);
+    }
+
+    animatePlanetRotationAroundSun(mercury, 40, 0.5);
+    animatePlanetRotationAroundSun(venus, 90, 0.2);
+    animatePlanetRotationAroundSun(earth, 130, 0.1);
+    animatePlanetRotationAroundSun(mars, 200, 0.05);
+    animatePlanetRotationAroundSun(neptune, 300, 0.03);
+    animatePlanetRotationAroundSun(pluto, 380, 0.03);
+    animatePlanetRotationAroundSun(jupiter, 400, 0.03);
+    animatePlanetRotationAroundSun(saturn, 420, 0.03);
 
     // Light for scene
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 0, 0), scene);

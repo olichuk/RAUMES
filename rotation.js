@@ -136,7 +136,7 @@ function animateEarthRotation(earth) {
     scene.beginAnimation(earth, 0, 100, true);
 }
 
-function animateEarthRotation(jupiter) {
+function animateJupiterRotation(jupiter) {
     var rotateJupiterAnimation = new BABYLON.Animation(
         jupiter.name + "Rotation",
         "rotation.y",
@@ -153,7 +153,7 @@ function animateEarthRotation(jupiter) {
     scene.beginAnimation(jupiter, 0, 100, true);
 }
 
-function animateEarthRotation(saturn) {
+function animateSaturnRotation(saturn) {
     var rotateSaturnAnimation = new BABYLON.Animation(
         saturn.name + "Rotation",
         "rotation.y",
