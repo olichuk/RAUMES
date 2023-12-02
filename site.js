@@ -40,6 +40,7 @@ var createScene = function () {
         return planet;
     }
 
+    //Function of moon rotating around earth
     function animateMoonRotationAroundEarth(moon, earth) {
         var distanceFromEarth = 15;
     
@@ -56,7 +57,7 @@ var createScene = function () {
         rotationKeys.push({ frame: 100, value: 2 * Math.PI });
         rotateMoonAroundEarthAnimation.setKeys(rotationKeys);
         moon.animations = [rotateMoonAroundEarthAnimation];
-        //scene.beginAnimation(moon, 0, 100, true);
+        scene.beginAnimation(moon, 0, 100, true);
     
         scene.onBeforeRenderObservable.add(function() {
             var angle = moon.rotation.y;
@@ -81,6 +82,7 @@ var createScene = function () {
 
     animateMoonRotationAroundEarth(moon, earth);
 
+    //Function of animation of planet rotation around sun
     function animatePlanetRotationAroundSun(planet, radius, rotationSpeed) {
         var rotatePlanetAroundSunAnimation = new BABYLON.Animation(
             planet.name + "AroundSunRotation",
@@ -108,6 +110,7 @@ scene.onBeforeRenderObservable.add(function () {
         scene.beginAnimation(planet, 0, 100, true);
     }
 
+    //Variables for planet rotation around sun
     animatePlanetRotationAroundSun(mercury, 40, 0.5);
     animatePlanetRotationAroundSun(venus, 90, 0.2);
     animatePlanetRotationAroundSun(earth, 130, 0.1);
@@ -117,6 +120,7 @@ scene.onBeforeRenderObservable.add(function () {
     animatePlanetRotationAroundSun(jupiter, 400, 0.03);
     animatePlanetRotationAroundSun(saturn, 420, 0.03);
 
+    //Variables for clickListener
     setPlanetClickListener(sun, "sun");
     setPlanetClickListener(mercury, "mercury");
     setPlanetClickListener(venus, "venus");
@@ -128,6 +132,7 @@ scene.onBeforeRenderObservable.add(function () {
     setPlanetClickListener(jupiter, "jupiter");
     setPlanetClickListener(saturn, "saturn");
 
+    //clickListener
 function setPlanetClickListener(planet, planetName) {
     planet.actionManager = new BABYLON.ActionManager(scene);
     planet.actionManager.registerAction(
