@@ -18,9 +18,16 @@
     <script src="site.js"></script>
     <script src="rotation.js"></script>
 
-    <!-- <audio autoplay volume="0.1" preload="auto" loop>
+    <script src="musiccontrol.js"></script>
+    <audio id="audio" volume="0.05" preload="auto" loop>
         <source src="background.mp3">
-    </audio> -->
+    </audio>
+    <div class="music-control">
+        <button id="toggleButton">
+          <span id="playIcon">&#9654;</span>
+          <span id="pauseIcon">&#10074;&#10074;</span>
+        </button>
+      </div>
 
     <div class="loader-container">
         <div class="loader">
