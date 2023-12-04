@@ -4,6 +4,8 @@ var scene, sun, mercury, venus, mars, moon, neptune, pluto, earth, jupiter, satu
 
 var initialCameraPosition = new BABYLON.Vector3(-Math.PI / 6, Math.PI / 2.1, 50);
 
+var isPlanetClickEnabled = true;
+
 //Scene
 var createScene = function () {
     scene = new BABYLON.Scene(engine);
@@ -40,6 +42,7 @@ var createScene = function () {
         return planet;
     }
 
+    //Function of moon rotating around earth
     function animateMoonRotationAroundEarth(moon, earth) {
         var distanceFromEarth = 15;
     
@@ -56,7 +59,7 @@ var createScene = function () {
         rotationKeys.push({ frame: 100, value: 2 * Math.PI });
         rotateMoonAroundEarthAnimation.setKeys(rotationKeys);
         moon.animations = [rotateMoonAroundEarthAnimation];
-        //scene.beginAnimation(moon, 0, 100, true);
+        scene.beginAnimation(moon, 0, 100, true);
     
         scene.onBeforeRenderObservable.add(function() {
             var angle = moon.rotation.y;
@@ -110,6 +113,7 @@ scene.onBeforeRenderObservable.add(function () {
         scene.beginAnimation(planet, 0, 100, true);
     }
 
+    //Variables for planet rotation around sun
     animatePlanetRotationAroundSun(mercury, 40, 0.5);
     animatePlanetRotationAroundSun(venus, 90, 0.2);
     animatePlanetRotationAroundSun(earth, 130, 0.1);
@@ -119,6 +123,37 @@ scene.onBeforeRenderObservable.add(function () {
     animatePlanetRotationAroundSun(jupiter, 400, 0.03);
     animatePlanetRotationAroundSun(saturn, 420, 0.03);
     animatePlanetRotationAroundSun(uranus, 425, 0.03);
+
+    //Variables for clickListener
+    setPlanetClickListener(sun, "sun");
+    setPlanetClickListener(mercury, "mercury");
+    setPlanetClickListener(venus, "venus");
+    setPlanetClickListener(mars, "mars");
+    setPlanetClickListener(moon, "moon");
+    setPlanetClickListener(neptune, "neptune");
+    setPlanetClickListener(pluto, "pluto");
+    setPlanetClickListener(earth, "earth");
+    setPlanetClickListener(jupiter, "jupiter");
+    setPlanetClickListener(saturn, "saturn");
+
+    //clickListener
+    function setPlanetClickListener(planet, planetName) {
+        planet.actionManager = new BABYLON.ActionManager(scene);
+        planet.actionManager.registerAction(
+            new BABYLON.ExecuteCodeAction(
+                BABYLON.ActionManager.OnPickTrigger,
+                function (evt) {
+                    if (isPlanetClickEnabled) {
+                        selectedPlanet = evt.source;
+                        if (selectedPlanet && planetName) {
+                            var htmlFilePath = "../" + planetName + "/" + planetName + ".html";
+                            window.location.href = htmlFilePath;
+                        }
+                    }
+                }
+            )
+        );
+    }    
 
     // Light for scene
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 0, 0), scene);
