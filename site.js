@@ -1,6 +1,6 @@
 var canvas = document.getElementById("renderCanvas");
 var engine = new BABYLON.Engine(canvas, true);
-var scene, sun, mercury, venus, mars, moon, neptune, pluto, earth, jupiter, saturn;
+var scene, sun, mercury, venus, mars, moon, neptune, pluto, earth, jupiter, saturn, uranus;
 
 var initialCameraPosition = new BABYLON.Vector3(-Math.PI / 6, Math.PI / 2.1, 50);
 
@@ -78,6 +78,7 @@ var createScene = function () {
     pluto = createPlanet("pluto", 4, new BABYLON.Vector3(380, 0, 0), "../textures/pluto.jpg");
     jupiter = createPlanet("jupiter", 4, new BABYLON.Vector3(400, 0, 0), "../textures/jupiter.jpg");
     saturn = createPlanet("saturn", 4, new BABYLON.Vector3(420, 0, 0), "../textures/saturn.jpg");
+    uranus = createPlanet("uranus", 4, new BABYLON.Vector3(425, 0, 0), "../textures/uranus.jpg");
 
     animateMoonRotationAroundEarth(moon, earth);
 
@@ -108,6 +109,28 @@ scene.onBeforeRenderObservable.add(function () {
         scene.beginAnimation(planet, 0, 100, true);
     }
 
+    function createSaturnRings(saturn) {
+        var ringTexture = new BABYLON.Texture("../textures/saturn_rings.png", scene);
+    
+        var rings = BABYLON.MeshBuilder.CreateDisc("saturnRings", {
+            radius: 20,
+            tessellation: 96,
+        }, scene);
+    
+        var ringMaterial = new BABYLON.StandardMaterial("saturnRingMaterial", scene);
+        ringMaterial.diffuseTexture = ringTexture;
+        ringMaterial.opacityTexture = ringTexture;
+        rings.material = ringMaterial;
+
+        rings.rotation.x = Math.PI / 2;
+
+        rings.parent = saturn;
+
+        rings.position.z = 0; 
+    }
+
+    createSaturnRings(saturn);
+
     animatePlanetRotationAroundSun(mercury, 40, 0.5);
     animatePlanetRotationAroundSun(venus, 90, 0.2);
     animatePlanetRotationAroundSun(earth, 130, 0.1);
@@ -116,6 +139,7 @@ scene.onBeforeRenderObservable.add(function () {
     animatePlanetRotationAroundSun(pluto, 380, 0.03);
     animatePlanetRotationAroundSun(jupiter, 400, 0.03);
     animatePlanetRotationAroundSun(saturn, 420, 0.03);
+    animatePlanetRotationAroundSun(uranus, 425, 0.03);
 
     // Light for scene
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 0, 0), scene);

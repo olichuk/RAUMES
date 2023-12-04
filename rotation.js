@@ -1,4 +1,4 @@
-var scene, sun, mercury, venus, mars, moon, neptune, pluto, earth, jupiter, saturn;
+var scene, sun, mercury, venus, mars, moon, neptune, pluto, earth, jupiter, saturn, uranus;
 
 function animateSunRotation(sun) {
     var rotateSunAnimation = new BABYLON.Animation(
@@ -157,7 +157,7 @@ function animateSaturnRotation(saturn) {
     var rotateSaturnAnimation = new BABYLON.Animation(
         saturn.name + "Rotation",
         "rotation.y",
-        30, //тут змінювати швидкість обертання
+        20, //тут змінювати швидкість обертання
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
     );
@@ -167,6 +167,23 @@ function animateSaturnRotation(saturn) {
     rotationKeys.push({ frame: 100, value: 2 * Math.PI });
     rotateSaturnAnimation.setKeys(rotationKeys);
     saturn.animations = [rotateSaturnAnimation];
+    scene.beginAnimation(saturn, 0, 100, true);
+}
+
+function animateUranusRotation(uranus) {
+    var rotateUranusAnimation = new BABYLON.Animation(
+        uranus.name + "Rotation",
+        "rotation.y",
+        30, //тут змінювати швидкість обертання
+        BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+    );
+
+    var rotationKeys = [];
+    rotationKeys.push({ frame: 0, value: 0 });
+    rotationKeys.push({ frame: 100, value: 2 * Math.PI });
+    rotateUranusAnimation.setKeys(rotationKeys);
+    uranus.animations = [rotateUranusAnimation];
     scene.beginAnimation(saturn, 0, 100, true);
 }
 
@@ -180,3 +197,4 @@ function animateSaturnRotation(saturn) {
     animateMercuryRotation(mercury);
     animateJupiterRotation(jupiter);
     animateSaturnRotation(saturn);
+    animateUranusRotation(uranus);
