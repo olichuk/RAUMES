@@ -84,7 +84,7 @@ var createScene = function () {
 
     animateMoonRotationAroundEarth(moon, earth);
 
-    //Function of animation of planet rotation around sun
+    //Planet rotation around Sun
     function animatePlanetRotationAroundSun(planet, radius, rotationSpeed) {
         var rotatePlanetAroundSunAnimation = new BABYLON.Animation(
             planet.name + "AroundSunRotation",
