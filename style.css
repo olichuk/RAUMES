@@ -163,3 +163,43 @@ button:hover {
     opacity: 0; 
     pointer-events: none;
 }
+
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  #toggleButton {
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    border: none;
+    border-radius: 100%;
+    width: 50px;
+    height: 62.5px;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #toggleButton:hover {
+    background-color: rgba(24, 24, 24, 0.3);
+  }
+  
+  #playIcon{
+    display: inline;
+  }
+
+  #pauseIcon {
+    display: none;
+  }
+  
+  #toggleButton.active #playIcon {
+    display: none;
+  }
+  
+  #toggleButton.active #pauseIcon {
+    display: inline;
+  }
