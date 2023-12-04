@@ -113,6 +113,29 @@ scene.onBeforeRenderObservable.add(function () {
         scene.beginAnimation(planet, 0, 100, true);
     }
 
+    //Saturn rings
+    function createSaturnRings(saturn) {
+        var ringTexture = new BABYLON.Texture("../textures/saturn_rings.png", scene);
+    
+        var rings = BABYLON.MeshBuilder.CreateDisc("saturnRings", {
+            radius: 20,
+            tessellation: 96,
+        }, scene);
+    
+        var ringMaterial = new BABYLON.StandardMaterial("saturnRingMaterial", scene);
+        ringMaterial.diffuseTexture = ringTexture;
+        ringMaterial.opacityTexture = ringTexture;
+        rings.material = ringMaterial;
+
+        rings.rotation.x = Math.PI / 2;
+
+        rings.parent = saturn;
+
+        rings.position.z = 0; 
+    }
+
+    createSaturnRings(saturn);
+
     //Variables for planet rotation around sun
     animatePlanetRotationAroundSun(mercury, 40, 0.5);
     animatePlanetRotationAroundSun(venus, 90, 0.2);
