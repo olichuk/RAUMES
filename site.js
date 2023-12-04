@@ -82,6 +82,7 @@ var createScene = function () {
 
     animateMoonRotationAroundEarth(moon, earth);
 
+    //Planet rotation around Sun
     function animatePlanetRotationAroundSun(planet, radius, rotationSpeed) {
         var rotatePlanetAroundSunAnimation = new BABYLON.Animation(
             planet.name + "AroundSunRotation",
@@ -109,6 +110,7 @@ scene.onBeforeRenderObservable.add(function () {
         scene.beginAnimation(planet, 0, 100, true);
     }
 
+    //Saturn rings
     function createSaturnRings(saturn) {
         var ringTexture = new BABYLON.Texture("../textures/saturn_rings.png", scene);
     
