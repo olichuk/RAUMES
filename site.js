@@ -149,7 +149,6 @@ var createScene = function () {
     animatePlanetRotationAroundSun(neptune, 830, 0.012);
     animatePlanetRotationAroundSun(pluto, 900, 0.008);
 
-
     //Variables for clickListener
     setPlanetClickListener(sun, "sun");
     setPlanetClickListener(mercury, "mercury");
