@@ -136,7 +136,6 @@ button:hover {
 
 .loading-icon {
     width: 3.273vw;
-    height: 6.757vh;
 }
 
 .loader-container {
@@ -172,8 +171,7 @@ button:hover {
     color: #ffffff;
     border: none;
     border-radius: 100%;
-    width: 2.728vw;
-    height: 7.038vh;
+    width: 3vw;
     cursor: pointer;
     outline: none;
     display: flex;

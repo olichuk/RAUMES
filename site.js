@@ -157,7 +157,7 @@ var createScene = function () {
     setPlanetClickListener(moon, "moon");
     setPlanetClickListener(neptune, "neptune");
     setPlanetClickListener(pluto, "pluto");
-    setPlanetClickListener(earth, "earth");
+    setPlanetClickListener(earth, "earth", "earth.html");
     setPlanetClickListener(jupiter, "jupiter");
     setPlanetClickListener(saturn, "saturn");
 
@@ -252,13 +252,13 @@ var createScene = function () {
                             "sun": "sun/sun.html",
                             "mercury": "mercury/mercury.html",
                             "venus": "venus/venus.html",
-                            "earth": 25,
+                            "earth": "earth/earth.html",
                             "mars": "mars/mars.html",
-                            "neptune": 30,
-                            "pluto": 10,
-                            "moon":6,
-                            "saturn": 20,
-                            "jupiter": 25
+                            "neptune": "neptune/neptune.html",
+                            "pluto": "pluto/pluto.html",
+                            "moon": "moon/moon.html",
+                            "saturn": "saturn/saturn.html",
+                            "jupiter": "jupiter/jupiter.html"
                         };
 
                         var url = urlMapping[selectedPlanet.name]
