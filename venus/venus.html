@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Raumes Venus!</title>
+    <link rel="stylesheet" href="venus.css">
+    <link rel="icon" type="image/png" href="../image/raumes01.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jomolhari&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <link rel="icon" type="image/png" href="../image/raumeswhite2.0.png">
+        <a id="logo" href="../index.html" >
+            <img id="logo" src="../image/raumeswhite2.0.png">
+        </a>
+        <h2 id = "hdrname" >Raumes</h2>
+        <a id="aboutus" href="../../aboutus.html" >About Us!</a>
+    </header>
+    <canvas id="renderCanvas"></canvas>
+    <div id="box">
+        <div class="head">
+            <div class="planet">
+                Venus
+            </div>
+            <a href="../../../index.html"> 
+                <img src="../image/back.png" alt="назад" class="back-button">
+            </a>
+        </div>
+        <div class="wrapper">
+            <a id="description" class="description" href="#">
+                <img src="../image/description.png" alt="значок опису" class="description-icon">
+                <p class="descriptionP">Description</p>
+            </a>
+            <a id="motion" class="motion" href="#">
+                <img src="../image/motion.png" alt="значок руху" class="motion-icon">
+                <p class="motionP">Motion</p>
+            </a>
+        </div>
+        <div class="content" >
+            <p id="textToShowM" class="hidden-text">
+                More than 40 spacecraft have launched for Venus. One spacecraft – Japan's Akatsuki – is currently in orbit. NASA will launch two missions to Venus in the next decade, and ESA will launch one. NASA's Mariner 2 was the first spacecraft to visit any planet beyond Earth when it flew past Venus on Dec. 14, 1962. Data gathered in a 42-minute scan forever changed how we see Earth's closest neighbor. It revealed Venus as a runaway global hothouse. Understanding what went wrong with Venus' climate could help protect Earth.More than 40 spacecraft have launched for Venus. One spacecraft – Japan's Akatsuki – is currently in orbit. NASA will launch two missions to Venus in the next decade, and ESA will launch one. NASA's Mariner 2 was the first spacecraft to visit any planet beyond Earth when it flew past Venus on Dec. 14, 1962. Data gathered in a 42-minute scan forever changed how we see Earth's closest neighbor. It revealed Venus as a runaway global hothouse.More than 40 spacecraft have launched for Venus. One spacecraft – Japan's Akatsuki – is currently in orbit. NASA will launch two missions to Venus in the next decade, and ESA will launch one. NASA's Mariner 2 was the first spacecraft to visit any planet beyond Earth when it flew past Venus on Dec. 14, 1962. Data gathered in a 42-minute scan forever changed how we see Earth's closest neighbor. It revealed Venus as a runaway global hothouse. Understanding what went wrong with Venus' climate could help protect Earth. Understanding what went wrong with Venus' climate could help protect Earth.More than 40 spacecraft have launched for Venus. One spacecraft – Japan's Akatsuki – is currently in orbit. NASA will launch two missions to Venus in the next decade, and ESA will launch one. NASA's Mariner 2 was the first spacecraft to visit any planet beyond Earth when it flew past Venus on Dec. 14, 1962. Data gathered in a 42-minute scan forever changed how we see Earth's closest neighbor. It revealed Venus as a runaway global hothouse. Understanding what went wrong with Venus' climate could help protect Earth.
+            </p>
+        </div>
+        <div class="content">
+            <p id="textToShowD" class="hidden-text">
+                This is the 
+            </p>
+        </div>
+    </div>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="venus.js"></script>
+
+    <audio autoplay volume="0.1" preload="auto" loop>
+        <source src="../background2.mp3">
+    </audio>
+    <div class="loader-container">
+        <div class="loader">
+            <img src="../image/raumeswhite2.0.png" alt="Завантаження" class="loading-icon">
+        </div>
+    </div>
+    <script src="loaderVenus.js"></script>
+</body>
+</html>
