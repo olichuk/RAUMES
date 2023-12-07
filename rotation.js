@@ -4,7 +4,7 @@ function animateSunRotation(sun) {
     var rotateSunAnimation = new BABYLON.Animation(
         sun.name + "Rotation",
         "rotation.y",
-        2,
+        1,
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
     );

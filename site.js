@@ -17,7 +17,7 @@ var createScene = function () {
     camera.lowerRadiusLimit = 45;
     camera.upperRadiusLimit = 1000;
     camera.checkCollisions = true;
-    camera.inputs.attached.pointers.buttons = [0];
+    camera.inputs.attached.pointers.buttons = [0, 2];
 
     //Background sphere(Star box sphere)
     BABYLON.SceneLoader.ImportMesh("", "../models/", "backgroundspace3.glb", scene, function (meshes) {
@@ -44,7 +44,7 @@ var createScene = function () {
 
     //Function of moon rotating around earth
     function animateMoonRotationAroundEarth(moon, earth) {
-        var distanceFromEarth = 15;
+        var distanceFromEarth = 25;
     
         var rotateMoonAroundEarthAnimation = new BABYLON.Animation(
             moon.name + "AroundEarthRotation",
@@ -71,17 +71,17 @@ var createScene = function () {
     }
 
     //Variables for a function
-    sun = createPlanet("sun", 30, new BABYLON.Vector3(0, 0, 0), "../textures/sun.jpg");
-    mercury = createPlanet("mercury", 3, new BABYLON.Vector3(40, 0, 0), "../textures/mercury.jpg");
-    venus = createPlanet("venus", 9, new BABYLON.Vector3(90, 0, 0), "../textures/venus.jpg");
-    earth = createPlanet("earth", 10, new BABYLON.Vector3(130, 0, 0), "../textures/earth.jpg");
-    moon = createPlanet("moon", 2, new BABYLON.Vector3(140, 0, 0), "../textures/moon.jpg");
-    mars = createPlanet("mars", 5, new BABYLON.Vector3(200, 0, 0), "../textures/mars.jpg");
-    neptune = createPlanet("neptune", 14, new BABYLON.Vector3(300, 0, 0), "../textures/neptune.jpg");
-    pluto = createPlanet("pluto", 4, new BABYLON.Vector3(380, 0, 0), "../textures/pluto.jpg");
-    jupiter = createPlanet("jupiter", 4, new BABYLON.Vector3(400, 0, 0), "../textures/jupiter.jpg");
-    saturn = createPlanet("saturn", 4, new BABYLON.Vector3(420, 0, 0), "../textures/saturn.jpg");
-    uranus = createPlanet("uranus", 4, new BABYLON.Vector3(425, 0, 0), "../textures/uranus.jpg");
+    sun = createPlanet("sun", 145, new BABYLON.Vector3(0, 0, 0), "../textures/sun.jpg");
+    mercury = createPlanet("mercury", 10, new BABYLON.Vector3(117, 0, 0), "../textures/mercury.jpg");
+    venus = createPlanet("venus", 16, new BABYLON.Vector3(152, 0, 0), "../textures/venus.jpg");
+    earth = createPlanet("earth", 17, new BABYLON.Vector3(205, 0, 0), "../textures/earth.jpg");
+    moon = createPlanet("moon", 5, new BABYLON.Vector3(210, 0, 0), "../textures/moon.jpg");
+    mars = createPlanet("mars", 12, new BABYLON.Vector3(255, 0, 0), "../textures/mars.jpg");
+    jupiter = createPlanet("jupiter", 57, new BABYLON.Vector3(365, 0, 0), "../textures/jupiter.jpg");
+    saturn = createPlanet("saturn", 43, new BABYLON.Vector3(505, 0, 0), "../textures/saturn.jpg");
+    uranus = createPlanet("uranus", 27, new BABYLON.Vector3(650, 0, 0), "../textures/uranus.jpg");
+    neptune = createPlanet("neptune", 26, new BABYLON.Vector3(740, 0, 0), "../textures/neptune.jpg");
+    pluto = createPlanet("pluto", 7.5, new BABYLON.Vector3(810, 0, 0), "../textures/pluto.jpg");
 
     animateMoonRotationAroundEarth(moon, earth);
 
@@ -137,15 +137,15 @@ scene.onBeforeRenderObservable.add(function () {
     createSaturnRings(saturn);
 
     //Variables for planet rotation around sun
-    animatePlanetRotationAroundSun(mercury, 40, 0.5);
-    animatePlanetRotationAroundSun(venus, 90, 0.2);
-    animatePlanetRotationAroundSun(earth, 130, 0.1);
-    animatePlanetRotationAroundSun(mars, 200, 0.05);
-    animatePlanetRotationAroundSun(neptune, 300, 0.03);
-    animatePlanetRotationAroundSun(pluto, 380, 0.03);
-    animatePlanetRotationAroundSun(jupiter, 400, 0.03);
-    animatePlanetRotationAroundSun(saturn, 420, 0.03);
-    animatePlanetRotationAroundSun(uranus, 425, 0.03);
+    animatePlanetRotationAroundSun(mercury, 117, 0);
+    animatePlanetRotationAroundSun(venus, 152, 0);
+    animatePlanetRotationAroundSun(earth, 205, 0);
+    animatePlanetRotationAroundSun(mars, 255, 0);
+    animatePlanetRotationAroundSun(jupiter, 365, 0);
+    animatePlanetRotationAroundSun(saturn, 505, 0);
+    animatePlanetRotationAroundSun(uranus, 650, 0);
+    animatePlanetRotationAroundSun(neptune, 740, 0);
+    animatePlanetRotationAroundSun(pluto, 810, 0);
 
     //Variables for clickListener
     setPlanetClickListener(sun, "sun");
