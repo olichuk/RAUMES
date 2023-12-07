@@ -16,10 +16,10 @@ body {
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    width: 700px;
-    height: 470px;
+    width: 38.189vw;
+    height: 52.928vh;
     max-width: 80%;
-    padding: 0px;
+    padding: 0;
     display: flex;
     text-align: center;
     align-items: center;
@@ -42,22 +42,21 @@ body {
 
 h1 {
     color: #fdfdfd;
-    font-size: 70px;
+    font-size: 3.819vw;
     font-weight: bold;
 }
 
 p {
     color: rgb(255, 255, 255);
-    font-size: 24px; 
-    margin-top: -20px; 
+    font-size: 1.309vw; 
+    margin-top: -2.252vh; 
 }
 
 header {
-
     width: 100%;
-    background-color: rgb(24, 24, 24);
-    height: 80px;
-    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    height: 9.009vh;
+    padding: 1.126vh 0.546vw;
     box-sizing: border-box;
     display: flex;
     justify-content: flex-start;
@@ -66,24 +65,23 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
-    max-width: 1920px;
+    font-family: 'Font1', Orbitron;
+
 }
 
 #logo {
-
-    width: 60px;
-    height: 60px;
-    background-color: rgb(24, 24, 24);
+    width: 3.273vw;
+    background-color: rgb(0, 0, 0);
     border-radius: 15%;
-    margin-right: 10px;
+    margin-right: 0.546vw;    
 }
 
 #hdrname {
-
+    font-size: 1.43vw;
     color: rgb(255, 255, 255);
     text-align: center;
-    margin-left: 5px;
-    font-weight: 400px;
+    margin-left: 0.273vw;
+    
 }
 
 .hidden {
@@ -104,8 +102,7 @@ header {
 }
 
 .loading-icon {
-    width: 60px;
-    height: 60px;
+    width: 3.273vw;
 }
 
 .loader-container {

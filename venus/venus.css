@@ -74,7 +74,6 @@ header {
     margin-left: 23vw;
     padding: 1vh 0.55vw;
     box-sizing: border-box;
-    height: 5.75vh;
     width: 2.89vw;
 }
 
@@ -247,7 +246,6 @@ header {
 
 .loading-icon {
     width: 3.273vw;
-    height: 6.757vh;
 }
 
 .loader-container {
