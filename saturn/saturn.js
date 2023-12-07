@@ -9,8 +9,8 @@ var createScene = function () {
 
     var camera = new BABYLON.ArcRotateCamera("Camera", -Math.PI / 6, Math.PI / 2.1, 30, BABYLON.Vector3.Zero(), scene);
     camera.attachControl(canvas, true);
-    camera.lowerRadiusLimit = 7.4;
-    camera.upperRadiusLimit = 7.4;
+    camera.lowerRadiusLimit = 50;
+    camera.upperRadiusLimit = 80;
     camera.checkCollisions = true;
     camera.inputs.attached.pointers.buttons = [0];
 
@@ -26,29 +26,11 @@ var createScene = function () {
 
     
 
-BABYLON.SceneLoader.ImportMesh("", "../models/", "venus.glb", scene, function (meshes) {
+BABYLON.SceneLoader.ImportMesh("", "../models/", "saturn.glb", scene, function (meshes) {
     venusSphere = meshes[0];
     venusSphere.position = new BABYLON.Vector3(0, 0, 0);
     
 });
-
-  /*  // Анімація обертання сонця
-var rotateSunAnimation = new BABYLON.Animation(
-    "sunRotation",
-    "rotation.y",
-    10,
-    BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-    BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
-);
-
-var rotationKeys = [];
-rotationKeys.push({ frame: 0, value: 0 });
-rotationKeys.push({ frame: 10, value: 2 * Math.PI });
-rotateSunAnimation.setKeys(rotationKeys);
-
-sunSphere.animations = [rotateSunAnimation];
-scene.beginAnimation(sunSphere, 0, 10, true);
-});*/
 
 document.addEventListener('DOMContentLoaded', function() {
     var links = document.querySelectorAll('.wrapper a');
