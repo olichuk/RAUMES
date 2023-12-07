@@ -1,8 +1,8 @@
 header {
     width: 100%;
     background-color: rgb(0, 0, 0);
-    height: 80px;
-    padding: 10px;
+    height: 9.009vh;
+    padding: 1.126vh 0.546vw;
     box-sizing: border-box;
     display: flex;
     justify-content: flex-start;
@@ -11,7 +11,6 @@ header {
     top: 0;
     left: 0;
     z-index: 500;
-    max-width: 1920px;
     font-family: 'Font1', Orbitron;
 
 }
@@ -27,19 +26,17 @@ body {
 }
 
 #logo {
-
-    width: 60px;
-    height: 60px;
+    width: 3.273vw;
     background-color: rgb(0, 0, 0);
     border-radius: 15%;
-    margin-right: 10px;
+    margin-right: 0.546vw;
 }
 
 #hdrname {
-
+    font-size: 1.43vw;
     color: rgb(255, 255, 255);
     text-align: center;
-    margin-left: 5px;
+    margin-left: 0.273vw;
     
 }
 
@@ -49,16 +46,16 @@ body {
     text-align: center;
     margin-left: auto;
     text-decoration: none;
-    
+    font-size: 1.245vw;
     
 }
 
 #container {
     
-    margin-top: 80px;
+    margin-top: 9.009vh;
     overflow: hidden;
-    max-width: 1920px;
-    max-height: 1080px;
+    max-width: 104.746vw;
+    max-height: 121.622vh;
 }
 
 canvas {
@@ -83,17 +80,17 @@ canvas {
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 200px; 
-    height: 100px; 
+    width: 10.911vw; 
+    height: 11.261vh; 
 }
 
 button {
     background-color: rgb(24, 24, 24);
     color: white;
     border: none;
-    padding: 15px 32px;
+    padding: 1.689vh 1.746vw;
     text-align: center;
-    font-size: 16px;
+    font-size: 0.873vw;
     cursor: pointer;
     font-family: 'Font1', Orbitron;
     border-radius: 10px;
@@ -115,7 +112,7 @@ button:hover {
 
 .text {
     color: white;
-    font-size: 24px;
+    font-size: 1.309vw;
     text-align: center;
     font-family: 'Font1', Orbitron;
 }
@@ -138,8 +135,8 @@ button:hover {
 }
 
 .loading-icon {
-    width: 60px;
-    height: 60px;
+    width: 3.273vw;
+    height: 6.757vh;
 }
 
 .loader-container {
@@ -166,8 +163,8 @@ button:hover {
 
 .music-control {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 2.252vh;
+    right: 1.091vw;
   }
   
   #toggleButton {
@@ -175,8 +172,8 @@ button:hover {
     color: #ffffff;
     border: none;
     border-radius: 100%;
-    width: 50px;
-    height: 62.5px;
+    width: 2.728vw;
+    height: 7.038vh;
     cursor: pointer;
     outline: none;
     display: flex;
