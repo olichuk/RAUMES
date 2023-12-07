@@ -4,7 +4,7 @@ function animateSunRotation(sun) {
     var rotateSunAnimation = new BABYLON.Animation(
         sun.name + "Rotation",
         "rotation.y",
-        2,
+        0.3,
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
     );
@@ -21,7 +21,7 @@ function animateMercuryRotation(mercury) {
     var rotateMercuryAnimation = new BABYLON.Animation(
         mercury.name + "Rotation",
         "rotation.y",
-        40,  //тут змінювати швидкість обертання
+        15,  //тут змінювати швидкість обертання
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
     );
@@ -38,7 +38,7 @@ function animateVenusRotation(venus) {
     var rotateVenusAnimation = new BABYLON.Animation(
         venus.name + "Rotation",
         "rotation.y",
-        35,  //тут змінювати швидкість обертання
+        3,  //тут змінювати швидкість обертання
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
     );
@@ -89,7 +89,7 @@ function animateNeptuneRotation(neptune) {
     var rotateNeptuneAnimation = new BABYLON.Animation(
         neptune.name + "Rotation",
         "rotation.y",
-        9,  //тут змінювати швидкість обертання
+        38,  //тут змінювати швидкість обертання
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
     );
@@ -106,7 +106,7 @@ function animatePlutoRotation(pluto) {
     var rotatePlutoAnimation = new BABYLON.Animation(
         pluto.name + "Rotation",
         "rotation.y",
-        8,  //тут змінювати швидкість обертання
+        35,  //тут змінювати швидкість обертання
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
     );
@@ -123,7 +123,7 @@ function animateEarthRotation(earth) {
     var rotateEarthAnimation = new BABYLON.Animation(
         earth.name + "Rotation",
         "rotation.y",
-        30, //тут змінювати швидкість обертання
+        23, //тут змінювати швидкість обертання
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
     );
@@ -140,7 +140,7 @@ function animateJupiterRotation(jupiter) {
     var rotateJupiterAnimation = new BABYLON.Animation(
         jupiter.name + "Rotation",
         "rotation.y",
-        30, //тут змінювати швидкість обертання
+        55, //тут змінювати швидкість обертання
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
     );
@@ -157,7 +157,7 @@ function animateSaturnRotation(saturn) {
     var rotateSaturnAnimation = new BABYLON.Animation(
         saturn.name + "Rotation",
         "rotation.y",
-        20, //тут змінювати швидкість обертання
+        50, //тут змінювати швидкість обертання
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
     );
@@ -174,7 +174,7 @@ function animateUranusRotation(uranus) {
     var rotateUranusAnimation = new BABYLON.Animation(
         uranus.name + "Rotation",
         "rotation.y",
-        30, //тут змінювати швидкість обертання
+        35, //тут змінювати швидкість обертання
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
     );
