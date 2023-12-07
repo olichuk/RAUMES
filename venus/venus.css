@@ -71,13 +71,15 @@ header {
 }
 
 .back-button{
-    margin-left: 23vw;
-    padding: 1vh 0.55vw;
-    box-sizing: border-box;
-    width: 2.89vw;
+    width: 2.1vw;
 }
 
-
+.back{
+    padding: 0;
+    margin-left: 22vw;
+    margin-top: 3.5vh;
+    box-sizing: border-box;
+}
 
 .head{
     display: flex;
