@@ -5,6 +5,8 @@ var scene, sun, mercury, venus, mars, moon, neptune, pluto, earth, jupiter, satu
 var initialCameraPosition = new BABYLON.Vector3(-Math.PI / 6, Math.PI / 2.1, 50);
 
 var isPlanetClickEnabled = true;
+var selectedPlanet = null;
+var targetDistance = 30;
 
 //Scene
 var createScene = function () {
@@ -14,7 +16,7 @@ var createScene = function () {
     //Scene camera
     var camera = new BABYLON.ArcRotateCamera("Camera", -Math.PI / 6, Math.PI / 3, 1250, BABYLON.Vector3.Zero(), scene);
     camera.attachControl(canvas, true);
-    camera.lowerRadiusLimit = 1200;
+    camera.lowerRadiusLimit = 600;
     camera.upperRadiusLimit = 1750;
     camera.checkCollisions = true;
     camera.inputs.attached.pointers.buttons = [0];
@@ -102,13 +104,13 @@ var createScene = function () {
         planet.animations = [rotatePlanetAroundSunAnimation];
     
         var angle = 0; 
-scene.onBeforeRenderObservable.add(function () {
-    angle += rotationSpeed / 100; 
-    var xOffset = radius * Math.sin(angle);
-    var zOffset = radius * Math.cos(angle);
-    planet.position.x = xOffset;
-    planet.position.z = zOffset;
-});
+        scene.onBeforeRenderObservable.add(function () {
+            angle += rotationSpeed / 100; 
+            var xOffset = radius * Math.sin(angle);
+            var zOffset = radius * Math.cos(angle);
+            planet.position.x = xOffset;
+            planet.position.z = zOffset;
+    });
     
         scene.beginAnimation(planet, 0, 100, true);
     }
@@ -158,9 +160,10 @@ scene.onBeforeRenderObservable.add(function () {
     setPlanetClickListener(earth, "earth");
     setPlanetClickListener(jupiter, "jupiter");
     setPlanetClickListener(saturn, "saturn");
+    setPlanetClickListener(uranus, "uranus");
 
     //clickListener
-    function setPlanetClickListener(planet, planetName) {
+    function setPlanetClickListener(planet) {
         planet.actionManager = new BABYLON.ActionManager(scene);
         planet.actionManager.registerAction(
             new BABYLON.ExecuteCodeAction(
@@ -168,10 +171,108 @@ scene.onBeforeRenderObservable.add(function () {
                 function (evt) {
                     if (isPlanetClickEnabled) {
                         selectedPlanet = evt.source;
-                        if (selectedPlanet && planetName) {
-                            var htmlFilePath = "../" + planetName + "/" + planetName + ".html";
-                            window.location.href = htmlFilePath;
-                        }
+                        
+                        var initialCameraRadius = scene.activeCamera.radius;
+                        var xOffset = targetDistance * Math.sin(selectedPlanet.rotation.y);
+                        var zOffset = targetDistance * Math.cos(selectedPlanet.rotation.y);
+                        var newCameraPosition = new BABYLON.Vector3(
+                            selectedPlanet.position.x + xOffset,
+                            selectedPlanet.position.y,
+                            selectedPlanet.position.z + zOffset
+                        );
+                        
+
+                        //CAMERA ANIMATION
+                        var cameraAnimation = new BABYLON.Animation(
+                            "cameraAnimation",
+                            "position",
+                            300,
+                            BABYLON.Animation.ANIMATIONTYPE_VECTOR3,
+                            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+                        );
+
+                        var positionKeys=[];
+                        positionKeys.push({
+                            frame: 0,
+                            value: scene.activeCamera.position.clone()
+                        });
+
+                        positionKeys.push({
+                            frame: 300,
+                            value: newCameraPosition
+                        });
+
+                        cameraAnimation.setKeys(positionKeys);
+                        freelook = false;
+                        scene.beginDirectAnimation(scene.activeCamera, [cameraAnimation], 0, 300, false);
+                        scene.activeCamera.setTarget(selectedPlanet.position);
+
+                        //RADIUS
+                        var radiusMapping = {
+                            "sun": 400,
+                            "mercury": 30,
+                            "venus": 50,
+                            "earth": 50,
+                            "mars": 30,
+                            "neptune": 60,
+                            "pluto": 20,
+                            "moon":10,
+                            "saturn": 100,
+                            "jupiter": 130,
+                            "uranus": 60
+                        };
+
+                        var newCameraRadius = radiusMapping[selectedPlanet.name]
+
+                        //RADIUS ANIMATION
+                        var radiusAnimation = new BABYLON.Animation(
+                            "radiusAnimation",
+                            "radius",
+                            300,
+                            BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+                            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+                        ); 
+
+                        var radiusKeys=[];
+                        radiusKeys.push({
+                            frame: 0,
+                            value: initialCameraRadius
+                        });
+
+                        radiusKeys.push({
+                            frame: 300,
+                            value: camera.lowerRadiusLimit = newCameraRadius
+                        });
+
+                        radiusKeys.push({
+                            frame: 300,
+                            value: camera.radius = newCameraRadius
+                        });
+
+                        //URLS
+                        var urlMapping = {
+                            "sun": "sun/sun.html",
+                            "mercury": "mercury/mercury.html",
+                            "venus": "venus/venus.html",
+                            "earth": "earth/earth.html",
+                            "mars": "mars/mars.html",
+                            "neptune": "neptune/neptune.html",
+                            "pluto": "pluto/pluto.html",
+                            "moon": "moon/moon.html",
+                            "saturn": "saturn/saturn.html",
+                            "jupiter": "jupiter/jupiter.html",
+                            "uranus": "uranus/uranus.html"
+                        };
+
+                        var url = urlMapping[selectedPlanet.name]
+                        
+                    
+                        radiusAnimation.setKeys(radiusKeys);
+                        scene.beginDirectAnimation(scene.activeCamera, [radiusAnimation], 0, 300, false);
+                        setTimeout(function() {
+                            window.location.href = url;
+                        }, 1000);     
+
                     }
                 }
             )

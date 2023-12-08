@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Raumes Saturn!</title>
+    <link rel="stylesheet" href="saturn.css">
+    <link rel="icon" type="image/png" href="../image/raumes01.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jomolhari&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <link rel="icon" type="image/png" href="../image/raumeswhite2.0.png">
+        <a id="logo" href="../index.html" >
+            <img id="logo" src="../image/raumeswhite2.0.png">
+        </a>
+        <h2 id = "hdrname" >Raumes</h2>
+        <a id="aboutus" href="../../aboutus.html" >About Us!</a>
+    </header>
+    <canvas id="renderCanvas"></canvas>
+    <div id="box">
+        <div class="head">
+            <div class="planet">
+                Saturn
+            </div>
+            <a class="back" href="../../../index.html"> 
+                <img src="../image/back.png" alt="назад" class="back-button">
+            </a>
+        </div>
+        <div class="wrapper">
+            <a id="description" class="description" href="#">
+                <img src="../image/description.png" alt="значок опису" class="description-icon">
+                <p class="descriptionP">Description</p>
+            </a>
+            <a id="motion" class="motion" href="#">
+                <img src="../image/motion.png" alt="значок руху" class="motion-icon">
+                <p class="motionP">Motion</p>
+            </a>
+        </div>
+        <div class="content" >
+            <p id="textToShowM" class="hidden-text">
+                The Solar System[c] is the gravitationally bound system of the Sun and the objects that orbit it. The largest of these objects are the eight planets, which in order from the Sun are four terrestrial planets (Mercury, Venus, Earth and Mars); two gas giants (Jupiter and Saturn); and two ice giants (Uranus and Neptune). The Solar System developed 4.6 billion years ago, when a molecular cloud was compressed, forming the Sun and a protoplanetary disc.
+
+All four terrestrial planets belong to the inner Solar System (≤ 1.7 astronomical units, AU) and have a solid surface. Inversely, all four giant planets belong to the outer Solar System (≤ 30.5 AU) and do not have a definite surface, as they are mainly composed of gases and liquids. 99.86% of the Solar System's mass is in the Sun and nearly 90% of the remaining mass are in Jupiter and Saturn. There is a strong consensus among astronomers that the Solar System also has nine dwarf planets, which consist of one asteroid-belt object – Ceres; five Kuiper-belt objects – Pluto, Orcus, Haumea, Quaoar, and Makemake; and three scattered-disc objects – Gonggong, Eris, and Sedna.
+            </p>
+        </div>
+        <div class="content">
+            <p id="textToShowD" class="hidden-text">
+                This is the description text
+            </p>
+        </div>
+    </div>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="saturn.js"></script>
+
+    <audio autoplay volume="0.1" preload="auto" loop>
+        <source src="../background2.mp3">
+    </audio>
+    <div class="loader-container">
+        <div class="loader">
+            <img src="../image/raumeswhite2.0.png" alt="Завантаження" class="loading-icon">
+        </div>
+    </div>
+    <script src="loaderSaturn.js"></script>
+</body>
+</html>
