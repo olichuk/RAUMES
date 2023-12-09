@@ -76,7 +76,7 @@ header {
 
 .back{
     padding: 0;
-    margin-left: 22vw;
+    margin-left: 24.7vw;
     margin-top: 3.5vh;
     box-sizing: border-box;
 }
@@ -231,6 +231,11 @@ header {
 
 .hidden {
     display: none;
+    opacity: 0;
+}
+
+.visible{
+    opacity: 1;
 }
 
 .loader {
