@@ -8,7 +8,7 @@ var createScene = function () {
     scene = new BABYLON.Scene(engine);
     scene.clearColor = new BABYLON.Color3(0, 0, 0);
 
-    var camera = new BABYLON.ArcRotateCamera("Camera", -Math.PI / 6, Math.PI / 2.1, 250, BABYLON.Vector3.Zero(), scene);
+    var camera = new BABYLON.ArcRotateCamera("Camera", -Math.PI / 6, Math.PI / 3, 1000, BABYLON.Vector3.Zero(), scene);
     camera.attachControl(canvas, true);
     camera.lowerRadiusLimit = 45;
     camera.upperRadiusLimit = 1000;
@@ -25,7 +25,7 @@ var createScene = function () {
         backgroundspace.material = material;
     });
 
-    // Функція для створення планети з текстурою та анімацією обертання
+    // 
     function createPlanet(name, diameter, position, texturePath) {
         var planetMaterial = new BABYLON.StandardMaterial(name + "Material", scene);
         planetMaterial.diffuseTexture = new BABYLON.Texture(texturePath, scene);

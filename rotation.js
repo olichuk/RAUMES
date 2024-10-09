@@ -1,4 +1,4 @@
-var scene, sun, mercury, venus, mars, moon, neptune, pluto, earth;
+var scene, sun, mercury, venus, mars, moon, neptune, pluto, earth, jupiter, saturn;
 
 function animateSunRotation(sun) {
     var rotateSunAnimation = new BABYLON.Animation(
@@ -144,3 +144,5 @@ function animateEarthRotation(earth) {
     animateMarsRotation(mars);
     animateSunRotation(sun);
     animateMercuryRotation(mercury);
+    animateJupiterRotation(jupiter);
+    animateSaturnRotation(saturn);

@@ -68,14 +68,14 @@ var createScene = function () {
     });
 
                                 //ПЛУТОН!!!
-    BABYLON.SceneLoader.ImportMesh("", "models/", "pluto.glb", scene, function (meshes) {
+    BABYLON.SceneLoader.ImportMesh("", "models/", "saturn.glb", scene, function (meshes) {
         pluto = meshes[0];
         pluto.position = new BABYLON.Vector3(120, 0, 0);
         pluto.scaling = new BABYLON.Vector3(1, 1, 1);
     });
 
                                 //ЗЕМЛЯ!!!
-    BABYLON.SceneLoader.ImportMesh("", "models/", "earth.glb", scene, function (meshes) {
+    BABYLON.SceneLoader.ImportMesh("", "models/", "jupiter.glb", scene, function (meshes) {
         earth = meshes[0];
         earth.position = new BABYLON.Vector3(27, 0, 0);
         earth.scaling = new BABYLON.Vector3(1, 1, 1);
